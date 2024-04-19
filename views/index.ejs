@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1> Enter a prompt for which you want a image</h1>
+    <h4> (Make it as crazy as you want) </h4>
+
+    <form action="" method="GET">
+
+    <span>Enter an Input  </span>
+
+    <input type="text" name="input_prompt" id="i">
+
+    <br>
+
+    <button type="submit" class="submit_but">Hit me hard yaar</button>
+
+</form>
+
+
+</body>
+</html>
+
+<script>
+    
+    document.querySelectorAll(".submit_but").forEach(but=>{
+        but.addEventListener('click',(event)=>{
+            event.preventDefault();
+
+            console.log("submit button clicked");
+
+            const input_prompt=document.getElementById("i").value;
+
+            console.log(input_prompt);
+
+            fetch(`/pictures_page/${input_prompt}`,{
+                method:'GET',
+                headers:{
+                    'Content-Type' : 'application/json'
+                },
+            })
+            .then(response =>{
+                if(!response.ok){
+                    throw new Error('Network Error response error');
+
+                }
+                window.location.href=`/pictures_page/${input_prompt}`;
+            })
+            .catch(error=>{
+                console.error(error);
+            });
+        })
+    })
+
+
+</script>
