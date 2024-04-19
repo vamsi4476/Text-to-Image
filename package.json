@@ -1,1 +1,22 @@
-{"dependencies":{"ejs":"^3.1.10","express":"^4.19.2","monsterapi":"^0.0.5","nodemon":"^3.1.0"}}
+{
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "monsterapi": "^0.0.5",
+    "nodemon": "^3.1.0"
+  },
+  "name": "text-to-image",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "mocha": "^10.4.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "mocha"
+  },
+  "author": "vamsi",
+  "license": "ISC",
+  "description": ""
+}
