@@ -1,6 +1,7 @@
 // import MonsterApiClient from "monsterapi";
 const { default: MonsterApiClient } = require("monsterapi");
 const express = require("express");
+const path = require('path');
 
 const app = express();
 
@@ -9,6 +10,11 @@ app.listen(process.env.PORT || 3000, () => {
 });
 
 app.set('view engine', 'ejs');
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })); 
+
+app.use(express.static(path.join(__dirname, '/public')));
 
 const client = new MonsterApiClient('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFhOGMzMTM3ZjhhMTVmMjBmZGQ2NDUzZjkxZDYxOTYwIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDQtMThUMjA6MDQ6MjEuNjc3MTY1In0.JTL3WZoLXHQDu9QCbFlSLCv_YUYGWywFgRR_ihE23tM');
 
